@@ -22,30 +22,48 @@
 </head>
 
 <body>
-  <h1 class="header">TODOS</h1>
-  <form class="main-form">
-    <input type="text"
-           name="list-input"
-           id="list-input"
-           class="input-box">
+  <div class="container">
+    <h1 class="header">TODOS</h1>
+    <form class="main-form">
+      <input type="text"
+             name="list-input"
+             id="list-input"
+             class="input-box"
+             placeholder="Write task">
 
-    <input type="submit"
-           value="Add Task">
-  </form>
+      <input type="submit"
+             value="Add"
+             class="submit-btn">
+    </form>
 
-  <div class="todo-container">
-    <ul class="todos">
-      <li class="todo">
-        Clean the house
+    <div class="todo-container">
+      <ul class="todos">
+        <li class="todo done">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, consequuntur quo minima itaque aliquid
+          eaque minus alias!
 
-        <div class="icons">
-          <ion-icon class="icon icon--remove"
-                    name="checkmark-circle"></ion-icon>
-          <ion-icon class="icon icon--remove"
-                    name="close-circle"></ion-icon>
-        </div>
-      </li>
-    </ul>
+          <div class="icons">
+            <ion-icon class="icon icon--done"
+                      name="checkmark-circle"></ion-icon>
+            <ion-icon class="icon icon--remove"
+                      name="close-circle"></ion-icon>
+          </div>
+        </li>
+
+        <li class="todo">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, consequuntur quo minima itaque aliquid
+          eaque minus alias!
+
+          <div class="icons">
+            <ion-icon class="icon icon--done"
+                      name="checkmark-circle"></ion-icon>
+            <ion-icon class="icon icon--remove"
+                      name="close-circle"></ion-icon>
+          </div>
+        </li>
+      </ul>
+    </div>
+
   </div>
 
   <script type="module"
