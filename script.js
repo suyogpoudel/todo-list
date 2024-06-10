@@ -86,5 +86,7 @@ todos.addEventListener("click", function (e) {
 
   if (e.target.classList.contains("icon--done")) todo.classList.toggle("done");
 
-  if (e.target.classList.contains("icon--remove")) todo.remove();
+  if (e.target.classList.contains("icon--remove")) {
+    todo.remove();
+  }
 });
