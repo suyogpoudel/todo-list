@@ -14,7 +14,36 @@
 </head>
 
 <body>
+  <h1 class="header">TODOS</h1>
+  <form class="main-form">
+    <input type="text"
+           name="list-input"
+           id="list-input"
+           class="input-box">
 
+    <input type="submit"
+           value="Add Task">
+  </form>
+
+  <div class="todo-container">
+    <ul class="todos">
+      <li class="todo">
+        Clean the house
+
+        <div class="icons">
+          <ion-icon class="icon icon--remove"
+                    name="checkmark-circle"></ion-icon>
+          <ion-icon class="icon icon--remove"
+                    name="close-circle"></ion-icon>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script type="module"
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
