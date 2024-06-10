@@ -3,6 +3,58 @@ const input = document.querySelector(".input-box");
 
 const todos = document.querySelector(".todos");
 // const todo = document.querySelectorAll(".todo");
+let todoArr = [];
+
+const renderTasks = function (task) {
+  let html = `
+  <li class="todo">
+    ${task}
+    <div class="icons">
+      <ion-icon
+        class="icon icon--done"
+        name="checkmark-circle"
+      ></ion-icon>
+      <ion-icon
+        class="icon icon--remove"
+        name="close-circle"
+      ></ion-icon>
+    </div>
+  </li>
+  `;
+
+  todos.insertAdjacentHTML("beforeend", html);
+};
+
+const setLocalStorage = function (task) {
+  localStorage.setItem("todos", JSON.stringify(task));
+};
+
+const getLocalStorage = function () {
+  const data = JSON.parse(localStorage.getItem("todos"));
+
+  // console.log(data);
+
+  if (!data) return;
+
+  todoArr = data;
+
+  todoArr.forEach((task) => {
+    renderTasks(task);
+  });
+};
+
+const reset = () => localStorage.removeItem("todos");
+
+// const getLocalStorage = function () {
+//   const data = JSON.parse(localStorage.getItem("todos"));
+//   if (!data) return;
+
+//   todoArr = data;
+
+//   todoArr.forEach((todo) => renderTasks(todo));
+// };
+
+getLocalStorage();
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -12,26 +64,13 @@ form.addEventListener("submit", function (e) {
 
   console.log(task);
 
-  todos.insertAdjacentHTML(
-    "beforeend",
-    `
-    <li class="todo">
-      ${task}
-      <div class="icons">
-        <ion-icon
-          class="icon icon--done"
-          name="checkmark-circle"
-        ></ion-icon>
-        <ion-icon
-          class="icon icon--remove"
-          name="close-circle"
-        ></ion-icon>
-      </div>
-    </li>
-    `
-  );
+  todoArr.push(task);
+
+  renderTasks(task);
 
   input.value = "";
+
+  setLocalStorage(todoArr);
 });
 
 todos.addEventListener("click", function (e) {
