@@ -121,6 +121,12 @@ class App {
       this._renderTask(task);
     });
   }
+
+  reset() {
+    localStorage.removeItem("todos");
+
+    location.reload();
+  }
 }
 
 const app = new App();
