@@ -2,17 +2,15 @@
 
 // Tasks
 class Todo {
-  #isDone = false;
+  isDone = false;
   #element;
   id = (Date.now() + "").slice(-10);
   constructor(task) {
     this.task = task; // Written in input field
   }
 
-  _setDone() {
-    this.#isDone = !this.#isDone;
-
-    if (true) return;
+  _setDone(todoItem) {
+    // if()
   }
 }
 
@@ -56,7 +54,7 @@ class App {
 
   _renderTask(todo) {
     let html = `
-    <li class="todo" data-id="${todo.id}">
+    <li class="todo ${todo.isDone ? "done" : ""}" data-id="${todo.id}">
       ${todo.task}
       <div class="icons">
         <ion-icon
@@ -80,7 +78,7 @@ class App {
 
     if (!taskEl) return;
 
-    console.log(taskEl);
+    // console.log(taskEl);
 
     const localStorageSub = JSON.parse(localStorage.getItem("todos"));
     const index = localStorageSub.findIndex(
@@ -89,6 +87,9 @@ class App {
 
     if (clickedBtn.classList.contains("icon--done")) {
       taskEl.classList.toggle("done");
+      this.#todoArr[index].isDone = !this.#todoArr[index].isDone;
+      console.log(this.#todoArr[index].isDone);
+      this._setLocalStorage();
     }
 
     if (clickedBtn.classList.contains("icon--remove")) {
@@ -100,6 +101,8 @@ class App {
       console.log(localStorageSub);
     }
   }
+
+  _setClassesInTask(todo) {}
 
   _removeFromLocalStorage() {}
 
